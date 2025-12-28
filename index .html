@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Career Guidance | Balqees Afridi</title>
+
+<style>
+body {
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#020024,#090979,#00d4ff);
+    color:white;
+    text-align:center;
+}
+.container{padding:40px;}
+.name{font-size:64px;animation:glow 2s infinite alternate;}
+@keyframes glow{from{text-shadow:0 0 10px cyan;}to{text-shadow:0 0 25px gold;}}
+.welcome{font-size:24px;}
+.tagline{color:#00ffff;font-size:20px;margin-bottom:30px;}
+button{padding:10px 20px;border-radius:20px;border:none;cursor:pointer;margin:10px;background:#00ffff;}
+.section-title{margin-top:50px;font-size:30px;}
+.fields{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;}
+.fields div{background:rgba(255,255,255,0.2);padding:15px 25px;border-radius:20px;cursor:pointer;transition:.3s;}
+.fields div:hover{transform:scale(1.1);}
+.popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);background:black;padding:35px;border-radius:20px;width:70%;transition:.4s;}
+.popup.show{transform:translate(-50%,-50%) scale(1);}
+.popup span{float:right;cursor:pointer;font-size:22px;}
+.wish{margin-top:60px;font-size:18px;}
+footer{margin:50px 0 20px;font-size:14px;}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h1 class="name">Balqees Afridi</h1>
+<p class="welcome">Welcome to the Official Career Guidance Portal</p>
+<p class="tagline" id="typing"></p>
+
+<button>Sign In</button>
+<button>Sign Up</button>
+
+<h2 class="section-title">🌍 Explore Career Fields</h2>
+
+<div class="fields">
+<div onclick="openCareer('cs')">Computer Science</div>
+<div onclick="openCareer('medical')">Medical</div>
+<div onclick="openCareer('engineering')">Engineering</div>
+<div onclick="openCareer('business')">Business</div>
+<div onclick="openCareer('ai')">Artificial Intelligence</div>
+</div>
+
+<div class="wish">
+<h3>✨ Good Luck, Future Leader ✨</h3>
+<p>
+Success is not decided by luck, it is decided by **choices**.  
+Choose wisely. Work hard. Stay patient.  
+Your dreams are valid.
+</p>
+</div>
+
+</div>
+
+<div class="popup" id="popup">
+<span onclick="closePopup()">❌</span>
+<h2 id="careerTitle"></h2>
+<p id="careerText"></p>
+</div>
+
+<footer>
+Designed & Developed by <b>Balqees Afridi</b> — Guiding Futures 🚀
+</footer>
+
+<script>
+let text="Your Career • Your Choice • Your Future";
+let i=0;
+function typing(){
+ if(i<text.length){
+  document.getElementById("typing").innerHTML+=text.charAt(i);
+  i++; setTimeout(typing,100);
+ }
+}
+typing();
+
+function openCareer(type){
+ let title="",info="";
+ if(type=="cs"){
+  title="Computer Science";
+  info="Computer Science is the backbone of the modern world. From mobile apps and websites to cybersecurity, game development and software engineering, this field shapes the digital future. If you enjoy logic, creativity, and solving problems, CS can lead you to powerful careers such as Software Engineer, Web Developer, Data Scientist, Cybersecurity Expert, Game Developer and many more.";
+ }
+ if(type=="medical"){
+  title="Medical Field";
+  info="The medical field is the most respected profession in the world. Doctors, nurses, pharmacists and medical researchers save lives every day. This career demands dedication, compassion, patience and hard work. If you have a heart for humanity and a strong academic focus, this field offers honor, stability and deep personal satisfaction.";
+ }
+ if(type=="engineering"){
+  title="Engineering";
+  info="Engineers build the world we live in. Roads, bridges, buildings, machines, power systems and technology all come from engineering minds. This field suits students who enjoy mathematics, physics and creative problem solving. Careers include Civil, Electrical, Mechanical, Software and many specialized branches.";
+ }
+ if(type=="business"){
+  title="Business & Entrepreneurship";
+  info="Business creates opportunities and leaders. Entrepreneurs turn ideas into companies, create jobs and shape economies. If you have leadership skills, communication strength and vision, business studies can lead you into management, finance, marketing, startups and corporate leadership.";
+ }
+ if(type=="ai"){
+  title="Artificial Intelligence";
+  info="Artificial Intelligence is the future of technology. AI systems can learn, think and make decisions. This field is transforming healthcare, robotics, finance, education and industry. AI professionals design intelligent systems that power tomorrow’s world. It requires strong programming, mathematics and analytical skills.";
+ }
+
+ document.getElementById("careerTitle").innerText=title;
+ document.getElementById("careerText").innerText=info+"\n\n— Career Guidance by Balqees Afridi";
+ document.getElementById("popup").classList.add("show");
+}
+function closePopup(){document.getElementById("popup").classList.remove("show");}
+</script>
+
+</body>
+</html>
